@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Result Portal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      width: 300px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f2f2f2;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    label {
+      font-weight: bold;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+    button {
+      background-color: #0074d9;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Student Result Portal</h1>
+    <form id="resultForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required><br>
+
+      <label for="surname">Surname:</label>
+      <input type="text" id="surname" name="surname" required><br>
+
+      <label for="studentNumber">Student Number:</label>
+      <input type="text" id="studentNumber" name="studentNumber" required><br>
+
+      <label for="course">Course:</label>
+      <input type="text" id="course" name="course" required><br>
+
+      <button type="button" onclick="checkResult()">Check Result</button>
+    </form>
+
+    <div id="resultDisplay" style="display: none;">
+      <h2>Result:</h2>
+      <p id="resultMessage"></p>
+    </div>
+  </div>
+
+  <script>
+    function checkResult() {
+      // You would typically make an AJAX request to a server here to fetch the result
+      // For simplicity, we'll just show a static message.
+      const name = document.getElementById("name").value;
+      const surname = document.getElementById("surname").value;
+      const studentNumber = document.getElementById("studentNumber").value;
+      const course = document.getElementById("course").value;
+
+      const resultMessage = `Hello ${name} ${surname}, your result for course "${course}" (Student Number: ${studentNumber}) is: A+`;
+
+      document.getElementById("resultMessage").textContent = resultMessage;
+      document.getElementById("resultDisplay").style.display = "block";
+    }
+  </script>
+</body>
+</html>
